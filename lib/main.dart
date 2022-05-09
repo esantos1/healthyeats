@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthyeats/constants.dart';
 import 'package:healthyeats/pages/loading_page.dart';
+import 'package:healthyeats/pages/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: kBackgroundColor,
         backgroundColor: kBackgroundColor,
       ),
-      home: const LoadingPage(),
+      home: LoginPage(),
     );
   }
 }
