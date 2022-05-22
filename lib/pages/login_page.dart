@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:healthyeats/constants.dart';
+import 'package:healthyeats/pages/home_page.dart';
+import 'package:healthyeats/pages/sign_up.dart';
+import 'package:healthyeats/widgets/healthy_button.dart';
 import 'package:healthyeats/widgets/healthy_form_field.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  //form controllers
   final formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
+
+  bool showPass = false;
 
   @override
   Widget build(BuildContext context) {
@@ -28,19 +41,67 @@ class LoginPage extends StatelessWidget {
   Widget _body(Size size) => Form(
         key: formKey,
         child: FractionallySizedBox(
-          heightFactor: 0.5,
+          heightFactor: 0.4,
           child: Container(
             constraints: const BoxConstraints(maxWidth: 315.0),
             padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                HealthyFormField(label: 'Email'),
-                HealthyFormField(label: 'Senha'),
+              children: [
+                HealthyFormField(
+                  controller: emailController,
+                  label: 'Email',
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                HealthyFormField(
+                  controller: passController,
+                  label: 'Senha',
+                  keyboardType: TextInputType.text,
+                  obscureText: showPass ? false : true,
+                  suffixIcon: Container(
+                    margin: const EdgeInsets.only(right: defaultPadding / 2),
+                    child: TextButton(
+                      onPressed: () => setState(() => showPass = !showPass),
+                      child: Icon(
+                        showPass ? Icons.visibility : Icons.visibility_off,
+                      ),
+                    ),
+                  ),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: HealthyButton(
+                        onPressed: openSignUp,
+                        label: 'Cadastrar-se',
+                      ),
+                    ),
+                    const SizedBox(width: defaultPadding),
+                    Expanded(
+                      child: HealthyButton(
+                        onPressed: login,
+                        label: 'Entrar',
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
         ),
+      );
+
+  void openSignUp() => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const SignUp()),
+      );
+
+  void login() => Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: ((context) => const HomePage()),
+        ),
+        (route) => false,
       );
 }
 

@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
 
     return Stack(
       children: [
-        CustomPaint(size: size, painter: BackgroundPainter()),
+        CustomPaint(size: size, painter: BackgroundUniversalPainter()),
         _body(),
       ],
     );

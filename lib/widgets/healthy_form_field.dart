@@ -6,6 +6,11 @@ class HealthyFormField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final bool? obscureText;
+  final Widget? prefix;
+  final Widget? prefixIcon;
+  final Widget? suffix;
+  final Widget? suffixIcon;
+
   final ValueChanged<String>? onChanged;
   final VoidCallback? onEditingComplete;
   final FormFieldValidator<String>? validator;
@@ -17,6 +22,10 @@ class HealthyFormField extends StatelessWidget {
     this.controller,
     this.keyboardType,
     this.obscureText = false,
+    this.prefix,
+    this.prefixIcon,
+    this.suffix,
+    this.suffixIcon,
     this.onChanged,
     this.onEditingComplete,
     this.validator,
@@ -25,13 +34,11 @@ class HealthyFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const kBorderRadius = 14.0;
-
     const kLabelStyle = TextStyle(fontWeight: FontWeight.bold);
 
     var boxDecoration = BoxDecoration(
       color: const Color(0xFFA3C8FF),
-      borderRadius: BorderRadius.circular(kBorderRadius),
+      borderRadius: BorderRadius.circular(kFormWidgetBorderRadius),
       boxShadow: const [
         BoxShadow(
           color: Colors.black12,
@@ -57,8 +64,12 @@ class HealthyFormField extends StatelessWidget {
             keyboardType: keyboardType,
             obscureText: obscureText!,
             decoration: InputDecoration(
+              prefix: prefix,
+              prefixIcon: prefixIcon,
+              suffix: suffix,
+              suffixIcon: suffixIcon,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(kBorderRadius),
+                borderRadius: BorderRadius.circular(kFormWidgetBorderRadius),
                 borderSide: const BorderSide(style: BorderStyle.none),
               ),
             ),
