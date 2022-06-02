@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
         child: FractionallySizedBox(
           heightFactor: 0.4,
           child: Container(
-            constraints: const BoxConstraints(maxWidth: 315.0),
+            constraints: const BoxConstraints(maxWidth: kMaxWidth),
             padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
   void login() => Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
-          builder: ((context) => const HomePage()),
+          builder: ((context) => HomePage()),
         ),
         (route) => false,
       );

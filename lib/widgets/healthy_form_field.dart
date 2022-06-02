@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:healthyeats/constants.dart';
 
 class HealthyFormField extends StatelessWidget {
@@ -10,7 +11,7 @@ class HealthyFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffix;
   final Widget? suffixIcon;
-
+  final List<TextInputFormatter>? inputFormatters;
   final ValueChanged<String>? onChanged;
   final VoidCallback? onEditingComplete;
   final FormFieldValidator<String>? validator;
@@ -26,6 +27,7 @@ class HealthyFormField extends StatelessWidget {
     this.prefixIcon,
     this.suffix,
     this.suffixIcon,
+    this.inputFormatters,
     this.onChanged,
     this.onEditingComplete,
     this.validator,
@@ -73,6 +75,7 @@ class HealthyFormField extends StatelessWidget {
                 borderSide: const BorderSide(style: BorderStyle.none),
               ),
             ),
+            inputFormatters: inputFormatters,
             onChanged: onChanged,
             onEditingComplete: onEditingComplete,
             onFieldSubmitted: onFieldSubmitted,
