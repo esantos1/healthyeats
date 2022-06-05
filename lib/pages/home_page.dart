@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthyeats/background_painter.dart';
 import 'package:healthyeats/constants.dart';
 import 'package:healthyeats/pages/calculator_page.dart';
-import 'package:healthyeats/pages/carte.dart';
+import 'package:healthyeats/pages/carte_page.dart';
 import 'package:healthyeats/pages/chat_page.dart';
 import 'package:healthyeats/pages/profile_page.dart';
 

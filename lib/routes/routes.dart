@@ -1,5 +1,5 @@
 import 'package:healthyeats/pages/calculator_page.dart';
-import 'package:healthyeats/pages/carte.dart';
+import 'package:healthyeats/pages/carte_page.dart';
 import 'package:healthyeats/pages/chat_page.dart';
 import 'package:healthyeats/pages/home_page.dart';
 import 'package:healthyeats/pages/loading_page.dart';
