@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:healthyeats/constants.dart';
-import 'package:healthyeats/pages/home_page.dart';
-import 'package:healthyeats/pages/sign_up.dart';
 import 'package:healthyeats/widgets/healthy_button.dart';
 import 'package:healthyeats/widgets/healthy_form_field.dart';
 
@@ -76,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                         label: 'Cadastrar-se',
                       ),
                     ),
-                    const SizedBox(width: defaultPadding),
+                    SizedBox(width: defaultPadding),
                     Expanded(
                       child: HealthyButton(
                         onPressed: login,
@@ -91,17 +89,12 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
 
-  void openSignUp() => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const SignUp()),
-      );
+  void openSignUp() => Navigator.pushNamed(context, '/signup');
 
-  void login() => Navigator.pushAndRemoveUntil(
+  void login() => Navigator.pushNamedAndRemoveUntil(
         context,
-        MaterialPageRoute(
-          builder: ((context) => HomePage()),
-        ),
-        (route) => false,
+        '/home',
+        (route) => true,
       );
 }
 

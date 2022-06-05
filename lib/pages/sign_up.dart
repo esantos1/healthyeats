@@ -94,7 +94,11 @@ class _SignUpState extends State<SignUp> {
                     const SizedBox(width: defaultPadding),
                     Expanded(
                       child: HealthyButton(
-                        onPressed: () {},
+                        onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          '/home',
+                          (route) => true,
+                        ),
                         label: 'Cadastrar',
                       ),
                     ),

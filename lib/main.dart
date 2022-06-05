@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthyeats/constants.dart';
-import 'package:healthyeats/pages/loading_page.dart';
 import 'package:healthyeats/pages/login_page.dart';
+import 'package:healthyeats/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,11 +16,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xFFFDBA57),
         scaffoldBackgroundColor: kBackgroundColor,
         backgroundColor: kBackgroundColor,
       ),
-      home: LoginPage(),
+      initialRoute: '/',
+      routes: routes,
     );
   }
 }
